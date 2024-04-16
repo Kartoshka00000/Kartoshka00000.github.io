@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Конвертер времени</title>
+</head>
+<body>
+<h2>Конвертер времени</h2>
+<p>Введите количество минут:</p>
+<input type="number" id="minutesInput">
+<button onclick="convertTime()">Конвертировать</button>
+<p id="result"></p>
+
+<script>
+function convertTime() {
+    var minutes = document.getElementById("minutesInput").value;
+    var hours = Math.floor(minutes / 60);
+    var remainingMinutes = minutes % 60;
+    document.getElementById("result").innerHTML = hours + " часов " + remainingMinutes + " минут";
+}
+</script>
+</body>
+</html>

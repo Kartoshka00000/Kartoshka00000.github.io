@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Расходы на криминалистику</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myChart"></canvas>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['USA', 'Germany', 'France', 'UK'],
+                datasets: [{
+                    label: 'Бюджет на криминалистику (% к общему бюджету)',
+                    data: [2.5, 1.8, 1.2, 2.0],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 2000,
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            return data.labels[tooltipItem.index] + ': ' + data.datasets[0].data[tooltipItem.index] + '%';
+                        }
+                    }
+                },
+                scale: {
+                    pointLabels: {
+                        fontSize: 14,
+                        fontColor: '#333333'
+                    },
+                    ticks: {
+                        display: false,
+                        beginAtZero: true,
+                        max: 3.0
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

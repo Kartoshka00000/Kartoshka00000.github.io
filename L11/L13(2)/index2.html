@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Картошка</title>
+<style>
+    body {
+        background-image: url('background.jpg');
+        background-size: cover;
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    #potatoImage {
+        display: none;
+        max-width: 30%;
+        height: auto;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Рассказ про картошку</h1>
+    <p>Картошка - удивительное растение, которое дарит нам вкусные и питательные клубни. В мире существует множество сортов картошки, отличающихся по размеру, форме и цвету.</p>
+    <p>Каждый год фермеры выращивают огромные урожаи картошки. Используется картошка в кулинарии для приготовления различных блюд: пюре, жареной картошки, супов и многих других.</p>
+    <p>При этом картошка богата крахмалом и витамином С, что делает ее полезной для здоровья. Ее можно хранить долгое время и использовать в качестве основного продукта в питании.</p>
+    <p>Картошка, картошка, картошка, картошка, картошка.</p>
+    <img id="potatoImage" src="https://ss.sport-express.net/userfiles/materials/192/1920443/volga.jpg" alt="Картошка">
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("p:contains('картошка')").css("cursor", "pointer").hover(function() {
+            $(this).fadeOut(300, function() {
+                $("#potatoImage").fadeIn(300);
+            });
+        }, function() {
+            $("#potatoImage").fadeOut(300, function() {
+                $(this).hide();
+                $("p:contains('картошка')").fadeIn(300);
+            });
+        });
+    });
+</script>
+</body>
+</html>
